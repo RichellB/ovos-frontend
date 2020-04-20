@@ -16,6 +16,17 @@ class CartCount extends React.Component{
   componentWillUnmount(){
     clearInterval(this.state.interval)
   }
+
+  countDown = () => {
+    console.log(this.state.countdown)
+    this.setState(prevState => {
+      return {countdown: prevState.countdown - 1}
+    })
+  }
+
+  render(){
+    return(  <h2>You have {this.state.countdown} seconds to checkout</h2> )
+  }
 }
 
 export default CartCount
