@@ -10,4 +10,17 @@ class Song extends Component{
   componentDidUpdate(){
     console.log("UPDATED!")
   }
+
+  render(){
+    return(
+      <div className="song" id={this.props.name + "-song"}>
+        <h3>{this.props.name}</h3>
+        <img alt={this.props.name + " image"}src={this.props.image1}/>
+        <br/>
+        Price: {this.props.price}
+        <br/>
+        {!this.props.isInCart && <button onClick={(e) => this.props.addToCart(this.props.id)}>Add To Cart</button>}
+      </div>
+    )
+  }
 }
