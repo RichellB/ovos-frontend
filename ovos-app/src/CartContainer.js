@@ -15,6 +15,13 @@ function CartContainer(props){
         </div>
       )})
     }
+
+    return(
+        <div id="cart-container">
+          <Countdown/>
+          {props.cart.length === 0 ? <h3>Cart is empty!</h3> : showSongs()}
+        </div>
+      )
 }
 
 export default CartContainer;
