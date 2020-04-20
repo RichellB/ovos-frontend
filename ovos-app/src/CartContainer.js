@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Countdown from './Countdown'
+import CartCount from './CartCount'
 
 function CartContainer(props){
 
@@ -18,7 +18,7 @@ function CartContainer(props){
 
     return(
         <div id="cart-container">
-          <Countdown/>
+          <CartCount/>
           {props.cart.length === 0 ? <h3>Cart is empty!</h3> : showSongs()}
         </div>
       )

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Song from './Song'
-import FilterBar from './FilterBar'
+import FilterContainer from './FilterContainer'
 
 class SongsContainer extends React.Component{
 
