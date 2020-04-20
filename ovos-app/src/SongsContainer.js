@@ -12,9 +12,12 @@ class SongsContainer extends React.Component{
   render(){
     return(
       <div id="songs-container">
+        <FilterBar/>
       {this.props.songs.map((song) => <Song key={song.id} id=
         {song.id} name={song.title} image1={song.image1} image2={song.image2} price={song.price} addToCart={this.props.addToCart} isInCart={this.isInCart(song.id)}/>)}
       </div>
     )
   }
 }
+
+export default SongsContainer 
