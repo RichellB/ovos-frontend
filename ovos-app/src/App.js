@@ -2,17 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-        <p>
-         HIIII
-        </p>
+class App extends React.Component {
 
-    </div>
-  );
-}
-
+  componentDidMount(){
+    fetch("http://localhost:3000/songs")
+      .then(res => res.json())
+      .then(songs => this.setState({songs}))
+  }
 
 state = {
   page: "Songs",
@@ -34,5 +30,14 @@ addToCart = (id) => {
   }, () => console.log(this.state))
 }
 
+render(){
+  return (
+    <div className="App">
+      <Header changeView={this.changeView}/>
+      {this.state.page === "Songs" ? <SongsContainer addToCart={this.addToCart} cart={this.state.cart} songs={this.state.songs}/> : <CartContainer cart={this.state.cart}/>}
+
+    </div>
+  )};
+}
 
 export default App;
