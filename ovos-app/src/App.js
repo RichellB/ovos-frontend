@@ -1,6 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Switch, Route} from 'react-router-dom'
 import './App.css';
+
+import Header from './Header'
+import SongsContainer from './SongsContainer'
+import CartContainer from './CartContainer'
+import SongForm from './SongForm'
+import SongView from './SongView'
+
+
 
 class App extends React.Component {
 
@@ -10,34 +18,40 @@ class App extends React.Component {
       .then(songs => this.setState({songs}))
   }
 
-state = {
-  page: "Songs",
-  songs: [],
-  cart: [],
-  term: ""
-}
+  state = {
+    songs: [],
+    cart: [],
+    term: ""
+  }
 
-changeView = (page) => {
-  console.log(this);
-  //this.setState({page: "Cart"})
-  this.setState({page})
-}
+  addToCart = (id) => {
+    let song = this.state.songs.find(song => song.id === id)
+    this.setState(prevState => {
+      return ({cart: [...prevState.cart, song]})
+    }, () => console.log(this.state))
+  }
 
-addToCart = (id) => {
-  let song = this.state.songs.find(song => song.id === id)
-  this.setState(prevState => {
-    return ({cart: [...prevState.cart, song]})
-  }, () => console.log(this.state))
-}
+  addToSongs = (song) => {
+    this.setState(prevState => {
+      return ({songs: [...prevState.songs, song]})
+    })
+  }
 
-render(){
-  return (
-    <div className="App">
-      <Header changeView={this.changeView}/>
-      {this.state.page === "Songs" ? <SongsContainer addToCart={this.addToCart} cart={this.state.cart} songs={this.state.songs}/> : <CartContainer cart={this.state.cart}/>}
 
-    </div>
-  )};
+
+  render(){
+    return (
+      <div className="App">
+        <Header changeView={this.changeView}/>
+        <Switch>
+          <Route exact path='/songs' component={() => <SongsContainer addToCart={this.addToCart} cart={this.state.cart} songs={this.state.songs}  />} />
+          <Route path='/cart' component={() => <CartContainer cart={this.state.cart}/>}/>
+          <Route exact path='/songs/new' render={() => <SongForm addToSongs={this.addToSongs}/>} />          
+          <Route exact path='/songs/:id' component={({match} ) => <SongView songs={this.state.songs} match={match} id={match.params.id}/>}/>
+          <Route exact path="/" render={()=><h1>OVOS (ONE VOICE ONE SOUND)!</h1>}/>
+        </Switch>
+      </div>
+    )};
 }
 
 export default App;

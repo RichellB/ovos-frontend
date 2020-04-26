@@ -13,9 +13,8 @@ class Song extends Component{
 
   render(){
     return(
-      <div className="song" id={this.props.name + "-song"}>
-        <h3>{this.props.name}</h3>
-        <img alt={this.props.name + " image"}src={this.props.image1}/>
+      <div className="song" id={this.props.title + "-song"}>
+        <h3>{this.props.title}</h3>
         <br/>
         Price: {this.props.price}
         <br/>
@@ -25,4 +24,5 @@ class Song extends Component{
   }
 }
 
+//<img alt={this.props.title + " image"}src={this.props.image1}/> 
 export default Song

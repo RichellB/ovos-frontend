@@ -12,9 +12,7 @@ class SongsContainer extends React.Component{
   render(){
     return(
       <div id="songs-container">
-        <FilterContainer/>
-      {this.props.songs.map((song) => <Song key={song.id} id=
-        {song.id} name={song.title} image1={song.image1} image2={song.image2} price={song.price} addToCart={this.props.addToCart} isInCart={this.isInCart(song.id)}/>)}
+        {this.props.songs.map((song) => <Song key={song.id} song={song} addToCart={this.props.addToCart} isInCart={this.isInCart(song.id)}/>)}
       </div>
     )
   }

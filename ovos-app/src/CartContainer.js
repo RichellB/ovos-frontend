@@ -8,7 +8,7 @@ function CartContainer(props){
     return props.cart.map(song => {
       return (
         <div key={song.id}>
-        Song: {song.name}
+        Song: {song.title}
         <br/>
         Price: {song.price}
         <br/>
