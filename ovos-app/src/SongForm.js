@@ -23,7 +23,7 @@ class SongForm extends React.Component{
       body: JSON.stringify({ song: this.state })
     }
 
-    fetch("http://localhost:3000/items", requestObj)
+    fetch("http://localhost:3001/items", requestObj)
       .then(res => res.json())
       .then(song => {
         this.props.addToSongs(song)

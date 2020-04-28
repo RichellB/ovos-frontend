@@ -13,10 +13,10 @@ class Song extends Component{
 
   render(){
     return(
-      <div className="song" id={this.props.title + "-song"}>
-        <h3>{this.props.title}</h3>
+      <div className="song" id={this.props.song.title + "-song"}>
+        <h3>Title: {this.props.song.title}</h3>
         <br/>
-        Price: {this.props.price}
+        Price: {this.props.song.price}
         <br/>
         {!this.props.isInCart && <button onClick={(e) => this.props.addToCart(this.props.id)}>Add To Cart</button>}
       </div>
@@ -24,5 +24,4 @@ class Song extends Component{
   }
 }
 
-//<img alt={this.props.title + " image"}src={this.props.image1}/> 
 export default Song

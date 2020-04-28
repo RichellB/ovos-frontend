@@ -7,21 +7,21 @@ import SongsContainer from './SongsContainer'
 import CartContainer from './CartContainer'
 import SongForm from './SongForm'
 import SongView from './SongView'
+import Song from './Song'
 
 
 
 class App extends React.Component {
 
-  componentDidMount(){
-    fetch("http://localhost:3000/songs")
-      .then(res => res.json())
-      .then(songs => this.setState({songs}))
-  }
-
   state = {
     songs: [],
-    cart: [],
-    term: ""
+    cart: []
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3001/songs")
+      .then(res => res.json())
+      .then(songs => this.setState({songs}))
   }
 
   addToCart = (id) => {
