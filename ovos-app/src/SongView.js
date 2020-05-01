@@ -1,10 +1,9 @@
-import React, {Component } from 'react'
+/* import React, {Component } from 'react'
 
 class SongView extends Component{
 
 
 renderSong = (song) => {
-    debugger
     if(song) {
     return(
         <div className="song" id={song.title + "-song"}>
@@ -17,8 +16,6 @@ renderSong = (song) => {
     }
 }
 
-// <img alt={song.title + " song"}src={song.image1}/>
-
 render(){
     const song = this.props.songs.find(song => song.id == this.props.id)
     return(
@@ -29,4 +26,4 @@ render(){
   }
 
 }
-export default SongView
+export default SongView */

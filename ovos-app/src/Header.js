@@ -19,7 +19,6 @@ function Header(props){
           <button> Home</button>
         </NavLink>
       </nav>
-
     </div>
   )
 }
